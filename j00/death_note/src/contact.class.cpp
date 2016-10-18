@@ -28,3 +28,8 @@ void Contact::setInfos(std::string info, int i)
 {
 	_contact_infos[i] = info;
 }
+
+std::string Contact::getInfos(int i) const
+{
+	return _contact_infos[i];
+}

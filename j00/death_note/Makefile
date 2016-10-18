@@ -3,7 +3,8 @@ NAME = death_note.exec
 SRC = 	src/main.cpp\
 		src/death_note.cpp \
 		src/directory.class.cpp \
-		src/contact.class.cpp
+		src/contact.class.cpp \
+		src/basic_func.cpp
 		
 HEADER = -Iincludes 
 

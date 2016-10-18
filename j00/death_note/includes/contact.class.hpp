@@ -10,6 +10,7 @@ class Contact
 		~Contact(void);
 		std::string getKey(int i) const;
 		void setInfos(std::string info, int i);
+		std::string getInfos(int i) const;
 
 	private:
 		static const std::string _keys [];
