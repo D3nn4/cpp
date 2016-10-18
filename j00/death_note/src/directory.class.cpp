@@ -38,38 +38,27 @@ void Directory::addContact(void)
 
 void Directory::displayDirectory(void) const
 {
-	if (_total_contact > 0) {
-		int widht = 3; // display only first name, last name and nickname;
-		for (int i = 0; i < _total_contact; ++i) {
-			std::string index = int_to_str(i);
-			index.resize(10, ' ');
-			std::cout << index;
-			for (int j = 0; j < widht; ++j) {
-				std::string to_display = _array_contact[i].getInfos(j);
-				if (to_display.size() > 9){
-					to_display.resize(9);
-					to_display.resize(10, '.');
-				}
-				else
-					to_display.resize(10, ' ');
-				std::cout << "|" << to_display;
-			}
-			std::cout << std::endl;
-		}
-		std::string cmd;
-		while (true) {
-			int index_contact;
-			std::cout << "Enter a valid index of a contact or EXIT to go back : ";
-			std::getline(std::cin, cmd);
-			if (cmd.compare("EXIT") == 0)
-				return;
-			index_contact = str_to_int(cmd);
-			if ( 0 <= index_contact && index_contact < _total_contact)				
-				_displayContact(index_contact);	
-		}
-	}
-	else
+	if (_total_contact <= 0) {
 		std::cout << "try to ADD a contact first" << std::endl;
+		return;
+	}
+	int widht = 3; // display only first name, last name and nickname;
+	for (int i = 0; i < _total_contact; ++i) {
+		std::string index = int_to_str(i);
+		index.resize(10, ' ');
+		std::cout << index;
+		for (int j = 0; j < widht; ++j) {
+			std::string to_display = _array_contact[i].getInfos(j);
+			if (to_display.size() > 9){
+				to_display.resize(9);
+				to_display.resize(10, '.');
+			}
+			else
+				to_display.resize(10, ' ');
+			std::cout << "|" << to_display;
+		}
+		std::cout << std::endl;
+	}	
 }
 
 void Directory::_displayContact(int i) const
@@ -78,5 +67,21 @@ void Directory::_displayContact(int i) const
 	for (int index; index < TOTAL_INFOS; ++index){
 		std::cout 	<< to_display.getKey(index) << " : "
 					<< to_display.getInfos(index) << std::endl;
+	}
+}
+
+void Directory::getContact() const
+{
+	displayDirectory();
+	std::string cmd;
+	while (true) {
+		int index;
+		std::cout << "Enter a valid index of a contact or EXIT to go back : ";
+		std::getline(std::cin, cmd);
+		if (cmd.compare("EXIT") == 0)
+			return;
+		index = str_to_int(cmd);
+		if ( 0 <= index && index < _total_contact)				
+			_displayContact(index);	
 	}
 }

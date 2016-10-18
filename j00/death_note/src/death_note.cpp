@@ -10,7 +10,7 @@ bool applyCmd(std::string cmd, Directory *dir)
 	else if (cmd.compare("ADD") == 0)
 		dir->addContact();
 	else if (cmd.compare("SEARCH") == 0)
-		dir->displayDirectory();
+		dir->getContact();
 	else
 		std::cout << "No command " << cmd << ", Try EXIT, ADD or SEARCH." << std::endl;
 	return true;

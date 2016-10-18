@@ -10,6 +10,7 @@ class Directory
 
 		int addTotal(void);
 		void addContact(void);
+		void getContact(void) const;
 		void displayDirectory(void) const;
 
 	

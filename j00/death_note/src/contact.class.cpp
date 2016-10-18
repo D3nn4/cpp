@@ -19,17 +19,27 @@ Contact::Contact(void){}
 
 Contact::~Contact(void){}
 
+int Contact::getTotalInfo()
+{
+	return 11;
+}
+
 std::string Contact::getKey(int i) const
 {
-	return _keys[i];
+	if (0 < i && i < TOTAL_INFOS)
+		return Contact::_keys[i];
+	return "";
 }
 
 void Contact::setInfos(std::string info, int i)
 {
-	_contact_infos[i] = info;
+	if (0 < i && i < TOTAL_INFOS)
+		_contact_infos[i] = info;
 }
 
 std::string Contact::getInfos(int i) const
 {
-	return _contact_infos[i];
+	if (0 < i && i < TOTAL_INFOS)	
+		return _contact_infos[i];
+	return "";
 }

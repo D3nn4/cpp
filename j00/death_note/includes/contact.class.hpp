@@ -11,7 +11,7 @@ class Contact
 		std::string getKey(int i) const;
 		void setInfos(std::string info, int i);
 		std::string getInfos(int i) const;
-
+		static int getTotalInfo();
 	private:
 		static const std::string _keys [];
 		std::string _contact_infos[TOTAL_INFOS];		
