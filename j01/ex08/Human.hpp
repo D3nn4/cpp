@@ -1,10 +1,10 @@
-#ifndef __HUMAN_H__
-#define __HUMAN_H__
+#ifndef __CHARACTER_H__
+#define __CHARACTER_H__
 #include <string>
 
 
 
-class Human
+class Character
 {
 	private:
 
@@ -27,4 +27,4 @@ struct Action
 
 
 
-#endif // __HUMAN_H__
+#endif // __CHARACTER_H__
