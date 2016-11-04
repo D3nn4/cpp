@@ -1,0 +1,24 @@
+#ifndef __HEADER_H__
+#define __HEADER_H__
+#include <string>
+
+
+class CLASS
+{
+	private:
+
+	protected:
+
+		std::string  _string;
+		int _int;
+
+	public:
+		CLASS();
+		CLASS(CLASS const &src);
+		~CLASS();
+		CLASS &operator=(CLASS const &src);	
+};
+
+std::ostream &operator<<(std::ostream &o, CLASS const &class);
+
+#endif // __HEADER_H__
