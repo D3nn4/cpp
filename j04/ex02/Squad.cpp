@@ -65,7 +65,7 @@ int Squad::push(ISpaceMarine *spaceMarine)
 			new_tab[i] = _tab_units[i];
 	}	
 	new_tab[new_size] = NULL;
-	deleteTabPtr(_tab_units, _count);
+	delete _tab_units;
 	_tab_units = new_tab;
 	_count = new_size;
 	return _count;
