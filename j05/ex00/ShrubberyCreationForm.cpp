@@ -7,11 +7,11 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-	:Form("Shrubbery Form", 145, 137),
+	:Form("Shrubbery Creation", 145, 137),
 	_target(target){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src)
-	:Form("Shrubbery Form", 145, 137)
+	:Form("Shrubbery Creation", 145, 137)
 {
 	if(this != &src)
 		*this = src;

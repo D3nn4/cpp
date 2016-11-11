@@ -7,11 +7,11 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	:Form("Robotomy Form", 72, 45),
+	:Form("Robotomy Request", 72, 45),
 	_target(target){}
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src)
-	:Form("Robotomy Form", 72, 45)
+	:Form("Robotomy Request", 72, 45)
 {
 	if(this != &src)
 		*this = src;

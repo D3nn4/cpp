@@ -6,6 +6,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -47,6 +48,10 @@ int main()
 	std::cout << *presidential;
 	george->signForm(presidential);
 	george->executeForm(*presidential);
+
+	Intern someRandomIntern;
+	Form *rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 
 
 	delete george;
