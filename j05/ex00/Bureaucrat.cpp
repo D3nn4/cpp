@@ -3,6 +3,7 @@
 #include <stdexcept>
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrate::Bureaucrate(std::string name, int grade)
 	:_name(name)
@@ -11,26 +12,17 @@ Bureaucrate::Bureaucrate(std::string name, int grade)
 	{ 
 		applyGrade(grade);
 	}
-	catch(GradeTooHighException &e)
-	{
-		e.what();
-		delete this;
-	}
-	catch(GradeTooLowException &e)
-	{
-		e.what();
-		delete this;
-	}
 	catch(std::exception &e)
 	{
-		std::cout << "Something went wrong. \n";
+		std::cout << e.what();
 		delete this;
 	}
 }
 
 Bureaucrate::Bureaucrate(Bureaucrate const &src)
 {
-	*this = src;
+	if(this != &src)
+		*this = src;
 }
 
 Bureaucrate::~Bureaucrate(){}
@@ -44,9 +36,9 @@ Bureaucrate &Bureaucrate::operator=(Bureaucrate const &src)
 void Bureaucrate::applyGrade(int grade)
 {
  	if (grade < getGradeMax())
- 		throw Bureaucrate::GradeTooHighException();
+ 		throw GradeTooHighException();
  	else if (grade > getGradeMin())
- 		throw Bureaucrate::GradeTooLowException();
+ 		throw GradeTooLowException();
  	else 
  		_grade = grade;
 }
@@ -77,17 +69,9 @@ void Bureaucrate::incrGrade()
 	{ 
 		applyGrade(_grade - 1);
 	}
-	catch(GradeTooHighException &e)
-	{
-		e.what();
-	}
-	catch(GradeTooLowException &e)
-	{
-		e.what();
-	}
 	catch(std::exception &e)
 	{
-		std::cout << "Something went wrong.\n";
+		std::cout << e.what();
 	}
 }
 void Bureaucrate::decrGrade()
@@ -96,18 +80,40 @@ void Bureaucrate::decrGrade()
 	{ 
 		applyGrade(_grade + 1);
 	}
-	catch(GradeTooHighException &e)
+	catch(std::exception &e)
 	{
-		e.what();
+		std::cout << e.what();
 	}
-	catch(GradeTooLowException &e)
+}
+
+void Bureaucrate::signForm(Form *form)
+{
+	try
 	{
-		e.what();
+		form->beSigned(this);
 	}
 	catch(std::exception &e)
 	{
-		std::cout << "Something went wrong.\n";
+		std::cout 	<< _name << " cannot sign " << form->getName()
+					<< " because " << e.what();
+		return;
 	}
+	std::cout << _name << " signs " << form->getName() << ".\n";
+}
+
+void Bureaucrate::executeForm(Form const & form)
+{
+	try
+	{
+		form.beExecute(this);
+	}
+	catch(std::exception &e)
+	{
+		std::cout 	<< _name << " cannot execute " << form.getName()
+					<< " because " << e.what();
+		return;
+	}
+	std::cout << _name << " execute " << form.getName() << ".\n";
 }
 
 std::ostream &operator<<(std::ostream &o, Bureaucrate const &bureaucrate)

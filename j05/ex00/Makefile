@@ -1,7 +1,11 @@
 NAME = ex00.exec
 
 SRC = 	main.cpp \
-		Bureaucrat.cpp
+		Bureaucrat.cpp \
+		Form.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp
 		
 HEADER = 
 

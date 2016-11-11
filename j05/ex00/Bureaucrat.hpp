@@ -3,12 +3,10 @@
 #include <string>
 #include <stdexcept>
 
-
+#include "Form.hpp"
 class Bureaucrate
 {
 	private:
-
-	protected:
 
 		const std::string  _name;
 		int _grade;
@@ -26,7 +24,9 @@ class Bureaucrate
 		void incrGrade();
 		void decrGrade();
 		void applyGrade(int grade);
-
+		void signForm(Form *form);
+		void executeForm(Form const & form);
+		
 	class GradeTooHighException : public std::exception
 	{
 		public:
