@@ -2,13 +2,9 @@
 
 int main(void)
 {
-	char buff[1024];
+	float *a = new float();
 
-	std::cout << "Hello World !" << std::endl;
-
-	std::cout << "Input a Word : ";
-	std::cin >> buff;
-	std::cout << "You entered : [" << buff << "]" << std::endl;
+	std::cout << *a << std::endl;
 
 	return 0;
 
