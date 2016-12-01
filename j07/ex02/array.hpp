@@ -17,7 +17,7 @@ class Array
 		Array(const unsigned int n);
 		Array(Array const &src);
 		Array &operator=(Array const &src);
-		T *operator[](const int index);
+		T &operator[](const int index);
 		~Array(){};
 
 		T *getArray() const;

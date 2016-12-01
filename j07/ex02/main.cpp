@@ -4,12 +4,20 @@
 
 int main()
 {
-	Array<int> newArray(5);
+	Array<int> intArray(5);
 	for (int i = 0; i < 5; ++i) {
-		newArray[i] = i;
+		intArray[i] = i;
 	}
 
-	std::cout << newArray << std::endl;
+	std::cout << intArray;
 
+	Array<char> charArray(5);
+	char c = 'a';
+	for (int i = 0; i < 5; ++i) {
+		charArray[i] = c;
+		++c;
+	}
+
+	std::cout << charArray;
 	return 0;
 }

@@ -49,7 +49,7 @@ Array<T> &Array<T>::operator=(Array const &src)
 }
 
 template <typename T>
-T *Array<T>::operator[](const int index)
+T &Array<T>::operator[](const int index)
 {
 	if (0 > index || index >= _size) {
 		throw std::exception();
@@ -76,8 +76,9 @@ std::ostream &operator<<(std::ostream &o, Array<T> const &array)
 		o << "Array empty.\n";
 	}
 	else {
+		T *srcarray = array.getArray();
 		for (int i = 0; i < array.getSize(); ++i) {
-			o << array[i];
+			o << srcarray[i] << std::endl;
 		}
 	}
 	return o;
