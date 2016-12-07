@@ -29,6 +29,9 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
+	std::stack<int> asscopy = s;
+	std::stack<int> boobcopy;
+	boobcopy = s;
 	
 	return 0;
 }
